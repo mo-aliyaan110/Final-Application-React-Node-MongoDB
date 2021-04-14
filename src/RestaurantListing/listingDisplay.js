@@ -5,27 +5,59 @@ import './listing.css';
 const ListingDisplay = (props) =>{
     const renderList = ({restListData}) =>{
         if(restListData){
-            return restListData.map((item)=>{
-                return(
-                    <div className='Item' id={item._id}>
-                        <div className='row'>
-                           
-                            <div className='col-md-3'>
-                                <img className='Image' src={item.thumb}/>
-                            </div>
-                            <Link to={`/restaurantdetails/:${item._id}`}>
-                            <div className='col-md-9'>
-                                {item.name}
-                                <h4> {item.address} </h4>
-                                <h4 className='textofcost'> Cost Per Person : {item.cost} </h4>
-                                <h4> Contact: {item.contact_number} </h4>
-                            </div>
-                            </Link>
-                        </div>
+            if(restListData.length>0){
 
+
+
+                return restListData.map((item)=>{
+                    return(
+                        <div className='Item' id={item._id}>
+                            <div className='row'>
+                               
+                                <div className='col-md-3'>
+                                    <img className='Image' alt='Picture_of_restaurant'  src={item.thumb}/>
+                                </div>
+                                 
+                                <div className='col-md-9'>
+                                    <div className='rest_name'>
+                                        <Link to={`/rest/${item._id}`}>{item.name}</Link>
+                                        <div className="city_name"> {item.city_name} </div>
+                                        <div className="address-text">{item.locality} </div>
+                                        <div className="address-text">{item.address} </div>
+    
+                                    </div>
+                                  
+                                </div>
+                                
+                            </div>
+                            <hr/>
+                            <div className='row'>
+                                <div className='col-md-3'>
+                                    <div className='CUISINES-COST-FOR-TWO'> Cuisine Type:</div>
+                                    <div className='CUISINES-COST-FOR-TWO'> Cost For Two:</div>
+                                </div>
+                                <div className='col-md-9'>
+                                    <div className='Bakery-700'>{item.Cuisine[0].name}, {item.Cuisine[1].name}</div>
+                                    <div className='Bakery-700'> {item.cost} </div>
+                                </div>
+    
+                            </div>
+    
+                        </div>
+                    )
+                })
+
+
+                
+            }
+            else{
+                return(
+                    <div>
+                        <center> <h4> No Data Present </h4> </center>    
                     </div>
                 )
-            })
+            }
+            
         }
         else{
             return(

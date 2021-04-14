@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './search.css';
-const lurl = 'http://localhost:9900/location';
-const rurl = 'http://localhost:9900/restaurant?city=';
+const lurl = 'https://zomato-like-rest.herokuapp.com/location';
+const rurl = 'https://zomato-like-rest.herokuapp.com/restaurant?city=';
 
 class Search extends Component{
     constructor(){
@@ -37,6 +37,11 @@ class Search extends Component{
         
 
     }
+   
+    // restaurantsShow = (event) =>{
+    //     this.props.rid(event.target.value)
+    // }
+
     // this function fetch the value of restaurants that is stored in state. After handling the event
     // renderRest = (data) =>{
     //     if(data){
@@ -50,6 +55,9 @@ class Search extends Component{
     //     }
 
     // }
+    restValue = (event) =>{
+        this.props.rid(event.target.value)
+    }
     renderRestaurant = (data) =>{
         if(data){
             return data.map((item)=>{
@@ -86,7 +94,7 @@ class Search extends Component{
                 &nbsp;
                 &nbsp;
 
-                <select className='locationDropDown'>
+                <select className='locationDropDown' onChange = {this.restValue} >
                     <option>-----Get The Restaurants-----</option>
                     {this.renderRestaurant(this.state.restaurants)}
                 </select>

@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import ListingDisplay from './listingDisplay';
 import axios from 'axios'
+import CuisineFilter from '../filters/cuisinefilter';
+import CostFilter from '../filters/costFilter';
 
-const lurl = 'http://localhost:9900/restaurant?mealtype='
+const lurl = 'https://zomato-like-rest.herokuapp.com/restaurant?mealtype='
 
 class ListingApi extends Component{
     constructor(props){
@@ -11,13 +13,21 @@ class ListingApi extends Component{
             restaurantsLists:''
         }
     }
+    setFilterPervalue(filtereddata){
+        this.setState({restaurantsLists:filtereddata})
+    }
     render(){
         console.log(this.props.match.params.id)
         return(
             <div>
                 <div className="row">
                     <div className="col-md-2">
-                        Filter Here
+                        
+                        <CuisineFilter result = {(data)=>{this.setFilterPervalue(data)}} />
+                        <br/>
+                        <hr/>
+                        <br/>
+                        <CostFilter costData = {(data)=>{this.setFilterPervalue(data)}} />
                     </div>
                     <div className='col-md-10'>
                         <ListingDisplay restListData = {this.state.restaurantsLists}/>
@@ -30,6 +40,7 @@ class ListingApi extends Component{
     }
     componentDidMount(){
         var mealId = this.props.match.params.id
+        sessionStorage.setItem('address',mealId)
         axios.get(`${lurl}${mealId}`)
         .then((res)=> {this.setState({restaurantsLists:res.data})})
     }

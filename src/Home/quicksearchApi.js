@@ -1,7 +1,7 @@
 import React,{Component}from 'react';
 import './quicksearch.css';
 import QuickSearchDisplay from './quicksearchDisplay';
-const murl = 'http://localhost:9900/mealtype';
+const murl = 'https://zomato-like-rest.herokuapp.com/mealtype';
 
 
 class QuickSearch extends Component{
