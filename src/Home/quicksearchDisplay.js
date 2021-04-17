@@ -16,9 +16,7 @@ const QuickSearchDisplay = (props) =>{
                                 <div className="imgcon p-3">
                                     
                                     <h5 className="heading" > {item.name} </h5>
-                                    <p className="des"> Start your day with 
-                                        exclusive breakfast 
-                                        options </p>
+                                    <p className="des"> Try our satisfying meal options </p>
                                 </div> 
                         </div>
                     </Link>
@@ -31,7 +29,7 @@ const QuickSearchDisplay = (props) =>{
 
                 
                 <h1 className="heading"> Quick Search </h1>
-                <p className="des"> Discover restaurants by type of meal </p>
+                <p className="des"> <h4>Discover restaurants by type of meal..!</h4>  </p>
                 
                 <div className='row'>
                     {listMeals(props)}

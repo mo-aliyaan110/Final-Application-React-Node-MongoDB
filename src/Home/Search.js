@@ -70,15 +70,17 @@ class Search extends Component{
         }
     }
     render(){
+
+      
         return(
             <div>
             <div className="container">
-                <div class="imageContainer">
+                <div className="imageContainer">
             <div id="logo">
                 <b>e!</b>
             </div>
-            <div class="heading">
-                Find the Best Restaurants, cafes, bars
+            <div className="hey">
+                {/* Select the Restaurants on the basis of City */}
             </div>
             <div class="locationSelector">
                 <select class="locationDropDown" onChange={this.handleCity}>

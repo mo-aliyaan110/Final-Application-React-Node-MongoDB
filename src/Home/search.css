@@ -50,10 +50,11 @@ body{
     margin-bottom:60px
 }
 
-.heading{
+.hey{
     text-align: center;
-    color:white;
-    font-size:36px;
+    color:rgb(131, 50, 36);
+    font-size:25px;
+    font-weight: 600;
 }
 .locationSelector{
     margin-top:20px;

@@ -27,7 +27,8 @@ class ListingApi extends Component{
                         <br/>
                         <hr/>
                         <br/>
-                        <CostFilter costData = {(data)=>{this.setFilterPervalue(data)}} />
+                        {/* we are disabling the cost filter because its not working || fix it later */}
+                        {/* <CostFilter costData = {(data)=>{this.setFilterPervalue(data)}} /> */}
                     </div>
                     <div className='col-md-10'>
                         <ListingDisplay restListData = {this.state.restaurantsLists}/>
